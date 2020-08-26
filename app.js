@@ -19,6 +19,7 @@ const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
+const bookingController = require('./controllers/bookingController');
 
 const app = express();
 
@@ -51,10 +52,16 @@ const limiter = rateLimit({
 });
 
 app.use('/api', limiter);
+// we need this route here before JSON parsing because we need the raw data for the hook to work
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'applications/json' }),
+  bookingController.webhookCheckout
+);
 // reading data from body into req.body
 app.use(express.json({ limit: '10kb' })); // middleware for JSON format
 // reading data from forms
-app.use(express.urlencoded({ extended: true, limit: '10kb'}));
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 //parse data from cookies
 app.use(cookieParser());
 // data sanitization against NoSQL query injection
