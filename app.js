@@ -7,6 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 // start up a server
 
 // importing the routers
@@ -54,6 +55,7 @@ app.use(mongoSanitize()); // filters out $ and .
 
 // Data sanitization against XSS
 app.use(xss()); // malicious html code and js code
+app.use(compression());
 
 // prevent parameter pollution
 app.use(

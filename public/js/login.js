@@ -14,7 +14,7 @@ const showAlert = (type, msg) => {
 
 const updateSettings = async (data, type) => {
   try {
-      const url = type === 'password' ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword' : 'http://127.0.0.1:3000/api/v1/users/updateMe';
+      const url = type === 'password' ? '/api/v1/users/updateMyPassword' : '/api/v1/users/updateMe';
 
       const res = await axios({
           method: 'PATCH',
@@ -67,7 +67,7 @@ if (document.querySelector('.nav__el--logout')) {
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://127.0.0.1:3000/api/v1/users/logout',
+        url: '/api/v1/users/logout',
       });
       if (res.data.status === 'success') location.reload(true);
     } catch (err) {
@@ -81,7 +81,8 @@ const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/users/login',
+      //url: 'http://127.0.0.1:3000/api/v1/users/login',
+      url: '/api/v1/users/login',
       data: {
         email: email,
         password: password,
@@ -94,7 +95,7 @@ const login = async (email, password) => {
             location.assign('/');
         }, 1500);
     }
-    console.log(res);
+   // console.log(res);
   } catch (err) {
       showAlert('error', err.response.data.message);
       //console.log(err.response.data.message);
@@ -106,8 +107,8 @@ if (document.querySelector('.form--login')) {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    console.log(email);
-    console.log(password);
+    //console.log(email);
+    //console.log(password);
     login(email, password);
   });
    
