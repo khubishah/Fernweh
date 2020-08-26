@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
+const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
@@ -55,7 +56,7 @@ app.use('/api', limiter);
 // we need this route here before JSON parsing because we need the raw data for the hook to work
 app.post(
   '/webhook-checkout',
-  express.raw({ type: 'applications/json' }),
+  bodyParser.raw({ type: 'application/json' }),
   bookingController.webhookCheckout
 );
 // reading data from body into req.body
