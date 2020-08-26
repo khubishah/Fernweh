@@ -14,4 +14,4 @@ const hideAlert = () => {
   };
 
   const alertMessage = docuent.querySelector('body').dataset.alert;
-  if (alert) showAlert('success', alertMessage, 20);
+  if (alertMessage) showAlert('success', alertMessage, 20);

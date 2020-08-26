@@ -1,7 +1,7 @@
 {
-  "name": "natours",
+  "name": "fernweh",
   "version": "1.0.0",
-  "description": "learning Mongo, Node, and Express",
+  "description": "learning MongoDB, Node, and Express",
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
