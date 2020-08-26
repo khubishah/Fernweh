@@ -36,6 +36,10 @@ process.on('unhandledRejection', (err) => {
   });
 });
 
+process.on('SIGTERM', () => {
+  console.log('SIGTERM RECEIVED. Shutting down...');
+});
+
 process.on('uncaughtException', err => {
   console.log(err.name, err.message);
   // entire node process is an unclean state, so we need to terminate the application

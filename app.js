@@ -20,6 +20,9 @@ const viewRouter = require('./routes/viewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 
 const app = express();
+
+// to help test if connection is secure or not -- HTTPS for prod deployment to Heroku
+app.enable('trust proxy');
 // template engine
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
