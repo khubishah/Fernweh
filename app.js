@@ -27,7 +27,9 @@ app.enable('trust proxy');
 // template engine
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
-app.use(cors()); // implemented CORS
+app.use(cors()); // set Access-Control-Allow-Origin. implemented CORS
+app.options('*', cors());
+// app.options('/api/v1/tours/:id', cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //mounting the routers
