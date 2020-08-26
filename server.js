@@ -38,6 +38,10 @@ process.on('unhandledRejection', (err) => {
 
 process.on('SIGTERM', () => {
   console.log('SIGTERM RECEIVED. Shutting down...');
+  // don't want to abruptly shut down. Heroku shuts down the application every 24 hours, so we want to let current process end gracefully
+  server.close(() => {
+    console.log('Process terminated');
+  });
 });
 
 process.on('uncaughtException', err => {
