@@ -219,7 +219,7 @@ body {
 
 .btn:focus {
   outline: none;
-  background-color: #2e864b;
+  background-color: #1d3ef5;
 }
 
 .btn--white {
@@ -1254,7 +1254,7 @@ body {
 }
 .form__input:focus {
   outline: none;
-  border-bottom: 3px solid #00ccff;
+  border-bottom: 3px solid #55c57a;
 }
 .form__input:focus:invalid {
   border-bottom: 3px solid #ff7730;
