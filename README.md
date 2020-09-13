@@ -5,7 +5,7 @@ Some of the cool features that I got working:
 - a bunch of security features (rate limiting, data sanitiation, encryption, https only for some requests)
 - server-side rendering using Pug templates.
 - Integrated Stripe payments and Stripe webhooks into the application! (Using Stripe testing mode)
-- Integrated NodeMailer and SendGrid for emailing sending! (still have to fix some issues with SendGrid though)
+- Integrated NodeMailer and SendGrid for sending a password reset link! (still have to fix some issues with SendGrid though but NodeMailer worked)
 - Storing all our data on the cloud using MongoDB Atlas!
 - Integrated Mapbox!
 
